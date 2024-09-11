@@ -23,5 +23,4 @@ class Api::V1::SpecificationsController < ApplicationController
   def specification_params
     params.require(:specification).permit(:name)
   end
-
 end

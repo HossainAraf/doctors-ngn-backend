@@ -16,6 +16,7 @@ class Api::V1::DoctorsController < ApplicationController
     else
       render json: doctor.errors, status: :unprocessable_entity
     end
+  end
 
     private
 
