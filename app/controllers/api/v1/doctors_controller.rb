@@ -18,6 +18,15 @@ class Api::V1::DoctorsController < ApplicationController
     end
   end
 
+  # METHOD TO GET DOCTORS BY SPECIFICATION ID
+  def by_specification
+    # Find doctors with the matching specification_id
+    @doctors = Doctor.where(specification_id: params[:specification_id])
+
+      render json: @doctors
+    
+  end 
+
     private
 
     def doctor_params
