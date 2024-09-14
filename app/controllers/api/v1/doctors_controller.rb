@@ -23,7 +23,11 @@ class Api::V1::DoctorsController < ApplicationController
     # Find doctors with the matching specification_id
     @doctors = Doctor.where(specification_id: params[:specification_id])
 
+    if @doctors.any?
       render json: @doctors
+    else
+      render json: { error: "No doctors found with the specified specification" }, status: :not_found
+    end                               
     
   end 
 
