@@ -1,6 +1,6 @@
 class Api::V1::DoctorsController < ApplicationController
   def index
-    doctors= Doctor.all
+    doctors = Doctor.all
     render json: doctors
   end
 
@@ -10,7 +10,7 @@ class Api::V1::DoctorsController < ApplicationController
   end
 
   def create
-    doctors = Doctor.new(doctor_params)
+    Doctor.new(doctor_params)
     if doctor.save
       render json: doctor, status: :created
     else
@@ -26,15 +26,13 @@ class Api::V1::DoctorsController < ApplicationController
     if @doctors.any?
       render json: @doctors
     else
-      render json: { error: "No doctors found with the specified specification" }, status: :not_found
-    end                               
-    
-  end 
-
-    private
-
-    def doctor_params
-      params.require(:doctor).permit(:name, :specification_id)
+      render json: { error: 'No doctors found with the specified specification' }, status: :not_found
     end
-  
+  end
+
+  private
+
+  def doctor_params
+    params.require(:doctor).permit(:name, :specification_id)
+  end
 end
