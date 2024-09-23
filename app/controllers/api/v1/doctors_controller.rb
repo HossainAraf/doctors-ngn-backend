@@ -1,5 +1,5 @@
 class Api::V1::DoctorsController < ApplicationController
-  #GET /api/v1/doctors
+  # GET /api/v1/doctors
   def index
     doctors = Doctor.all
     render json: doctors
@@ -21,7 +21,7 @@ class Api::V1::DoctorsController < ApplicationController
     end
   end
 
-  # METHOD TO GET DOCTORS BY SPECIFICATION ID 
+  # METHOD TO GET DOCTORS BY SPECIFICATION ID
   # GET /api/v1/specifications/:specification_id/doctors
   def by_specification
     # Find doctors with the matching specification_id
@@ -37,7 +37,7 @@ class Api::V1::DoctorsController < ApplicationController
   private
 
   def doctor_params
-    params.require(:doctor).permit(:name, :specification_id, :display_order, :degree, :designation, :chember, :time, :contact)
+    params.require(:doctor).permit(:name, :specification_id, :display_order, :degree, :designation, :chember, :time,
+                                   :contact)
   end
-  
 end
