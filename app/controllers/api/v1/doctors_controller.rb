@@ -1,24 +1,28 @@
 class Api::V1::DoctorsController < ApplicationController
+  # GET /api/v1/doctors
   def index
     doctors = Doctor.all
     render json: doctors
   end
 
+  # GET /api/v1/doctors/:id
   def show
     doctor = Doctor.find(params[:id])
     render json: doctor
   end
 
+  # POST /api/v1/doctors
   def create
-    Doctor.new(doctor_params)
-    if doctor.save
-      render json: doctor, status: :created
+    @doctor = Doctor.new(doctor_params)
+    if @doctor.save
+      render json: @doctor, status: :created
     else
-      render json: doctor.errors, status: :unprocessable_entity
+      render json: @doctor.errors, status: :unprocessable_entity
     end
   end
 
   # METHOD TO GET DOCTORS BY SPECIFICATION ID
+  # GET /api/v1/specifications/:specification_id/doctors
   def by_specification
     # Find doctors with the matching specification_id
     @doctors = Doctor.where(specification_id: params[:specification_id])
@@ -33,6 +37,7 @@ class Api::V1::DoctorsController < ApplicationController
   private
 
   def doctor_params
-    params.require(:doctor).permit(:name, :specification_id)
+    params.require(:doctor).permit(:name, :specification_id, :display_order, :degree, :designation, :chember, :time,
+                                   :contact)
   end
 end

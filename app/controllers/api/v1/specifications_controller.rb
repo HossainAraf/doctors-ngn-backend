@@ -9,6 +9,7 @@ class Api::V1::SpecificationsController < ApplicationController
     render json: specification
   end
 
+  # endpoint: POST /api/v1/specifications
   def create
     specification = Specification.new(specification_params)
     if specification.save
