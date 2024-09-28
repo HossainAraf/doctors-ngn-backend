@@ -2,6 +2,8 @@ class Api::V1::SpecificationsController < ApplicationController
   def index
     specifications = Specification.all
     render json: specifications
+  rescue => e
+    render json: { error: e.message }, status: :internal_server_error
   end
 
   def show
