@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: proc { [200, {}, ['API is live']] }
+  
   namespace :api do
     namespace :v1 do
       resources :doctors, only: [:index, :show, :create, :destroy, :update]  #qLimit the routes to only for specific actions
