@@ -213,6 +213,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  bundler (~> 2.5.18)
   debug
   pg (~> 1.1)
   puma (>= 5.0)
