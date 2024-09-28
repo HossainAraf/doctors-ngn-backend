@@ -81,4 +81,5 @@ production:
   <<: *default
   database: doctors_ngn_production
   username: hossain_araf
+  url: <%= ENV["DATABASE_URL"] %>
   password: <%= ENV["DOCTORS_NGN_DATABASE_PASSWORD"] %>
