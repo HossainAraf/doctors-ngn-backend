@@ -81,5 +81,7 @@ production:
   <<: *default
   database: doctors_ngn_production
   username: hossain_araf
+  host: dpg-crrnsv8gph6c738j11n0-a
   url: <%= ENV["DATABASE_URL"] %>
   password: <%= ENV["DOCTORS_NGN_DATABASE_PASSWORD"] %>
+  port: 5432
