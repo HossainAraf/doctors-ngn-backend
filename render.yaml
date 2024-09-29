@@ -1,12 +1,12 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: doctors_ngn
+    databaseName: doctors_ngn
+    user: hossain_araf
     plan: free
 
 services:
   - type: web
-    name: mysite
+    name: doctors_ngn
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
