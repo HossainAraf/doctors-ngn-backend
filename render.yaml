@@ -9,7 +9,7 @@ services:
     name: doctors_ngn
     runtime: ruby
     plan: free
-    buildCommand: "./bin/render-build.sh"
+    buildCommand: "./bin/render-build.sh; bundle exec rails db:migrate; rails db:schema:load"
     # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
     startCommand: "bundle exec rails server"
     envVars:
