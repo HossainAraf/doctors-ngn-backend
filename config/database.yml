@@ -81,4 +81,4 @@ production:
   <<: *default
   database:  doctors_ngn_119b
   username: hossain_araf
-  password: PdSyTCP5C1r9jLvQUKCR8zAqOoyfjgXB
+  password: <%= ENV["DOCTORS_NGN_DATABASE_PASSWORD"] %>
