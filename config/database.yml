@@ -79,6 +79,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: doctors_ngn_production
   username: hossain_araf
   password: <%= ENV["DOCTORS_NGN_DATABASE_PASSWORD"] %>
