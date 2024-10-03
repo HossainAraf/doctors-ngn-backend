@@ -80,4 +80,6 @@ test:
 production:
   <<: *default
   url: <%= ENV["DATABASE_URL"] %>
- 
+  database: doctors_ngn
+  username: hossain_araf
+  password: <%= ENV["doctors_ngn_DATABASE_PASSWORD"] %>
