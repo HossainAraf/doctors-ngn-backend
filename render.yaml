@@ -1,14 +1,15 @@
 databases:
   - name: doctors_ngn  # Match this to the actual Render database
-    databaseName: doctors_ngn_119b  # Ensure the actual name matches here
-    user: hossain_araf
+    # databaseName: doctors_ngn_119b  # Ensure the actual name matches here
+    # user: hossain_araf
+    isAllow: []
     plan: free
 services:
   - type: web
     name: doctors_ngn  # Use the correct name for your web service here
     runtime: ruby
     plan: free
-    buildCommand: "./bin/render-build.sh && bundle exec rails db:migrate && rails db:schema:load"
+    buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
@@ -17,5 +18,4 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
-      - key: WEB_CONCURRENCY
-        value: 2
+    # maxmemoryPolicy: noeviction
