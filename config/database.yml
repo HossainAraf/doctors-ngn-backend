@@ -82,4 +82,4 @@ production:
   url: <%= ENV["DATABASE_URL"] %>
   database: doctors_ngn
   username: hossain_araf
-  password: <%= ENV["doctors_ngn_DATABASE_PASSWORD"] %>
+  password: <%= ENV["DOCTORS_NGN_DATABASE_PASSWORD"] %>
