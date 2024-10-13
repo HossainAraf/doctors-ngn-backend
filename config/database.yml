@@ -22,6 +22,8 @@ default: &default
 development:
   <<: *default
   database: doctors_ngn_development
+  user: <%= Rails.application.credentials.dig(:development, :database_user) %>
+  password: <%= Rails.application.credentials.dig(:development, :database_password) %>
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
