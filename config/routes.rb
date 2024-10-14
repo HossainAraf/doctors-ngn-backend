@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
+      get 'feedback_forms/index'
+      get 'feedback_forms/create'
+      get 'feedback_forms/update'
       resources :doctors, only: [:index, :show, :create, :destroy, :update]  #qLimit the routes to only for specific actions
       resources :specifications do
         get 'doctors', to: 'doctors#by_specification'
