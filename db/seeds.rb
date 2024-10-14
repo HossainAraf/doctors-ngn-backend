@@ -8,4 +8,24 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Create.feedback_form(feedback, name, email, phone)
+# Add data to feedbacks table where model name is FeedbackForm
+# FeedbackForm.create([
+#   { feedback: 'i am the body of the feedback', name: 'John Doe', email: 'john@xyz.com', phone: '1234567890', subject: 'Feedback', message: 'This is a feedback message', created_at: Time.now, updated_at: Time.now }
+# ])
+
+feedback = FeedbackForm.new(
+  feedback: 'i am the body of the feedback',
+  name: 'John Doe',
+  email: 'john@xyz.com',
+  phone: '1234567890',
+  created_at: Time.now,
+  updated_at: Time.now
+)
+
+if feedback.save
+  puts 'Feedback saved successfully!'
+else
+  puts 'Failed to save feedback: ' + feedback.errors.full_messages.join(', ')
+end
+
+
