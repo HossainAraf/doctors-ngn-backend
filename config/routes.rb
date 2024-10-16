@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :specifications do
         get 'doctors', to: 'doctors#by_specification'
       end
-      resources :user_feedbacks, only: [:index, :create, :destroy]
+      resources :user_feedbacks, only: [:index, :create, :update, :destroy]
     end  
   end
       # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
