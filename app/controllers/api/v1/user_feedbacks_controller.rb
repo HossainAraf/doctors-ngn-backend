@@ -17,7 +17,7 @@ class Api::V1::UserFeedbacksController < ApplicationController
     user_feedback = UserFeedback.find_by(id: params[:id])
     if user_feedback
       if user_feedback.update(user_feedback_params)
-        render json: user_feedback, status: :ok  # Respond with the updated feedback data
+        render json: user_feedback, status: :ok # Respond with the updated feedback data
       else
         render json: { error: 'Failed to update feedback' }, status: :unprocessable_entity
       end
@@ -25,7 +25,6 @@ class Api::V1::UserFeedbacksController < ApplicationController
       render json: { error: 'User feedback not found' }, status: :not_found
     end
   end
-  
 
   def destroy
     user_feedback = UserFeedback.find_by(id: params[:id])
