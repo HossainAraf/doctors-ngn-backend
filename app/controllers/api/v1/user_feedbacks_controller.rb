@@ -17,8 +17,15 @@ class Api::V1::UserFeedbacksController < ApplicationController
   end
 
   def destroy
-    user_feedbacks = UserFeedback.all
+    user_feedback = UserFeedback.find_by(id: params[:id])
+    if user_feedback
+      user_feedback.destroy
+      head :no_content  # This responds with 204 
+    else
+      render json: { error: 'User feedback not found' }, status: :not_found
+    end
   end
+  
 
 end
 
