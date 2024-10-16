@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_13_105950) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_14_061550) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,17 +25,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_13_105950) do
     t.string "contact", limit: 255
   end
 
-  create_table "feedback_forms", force: :cascade do |t|
+  create_table "specifications", id: :serial, force: :cascade do |t|
+    t.string "name", limit: 255, null: false
+  end
+
+  create_table "user_feedbacks", force: :cascade do |t|
     t.string "feedback"
     t.string "name"
     t.string "email"
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "specifications", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255, null: false
   end
 
   add_foreign_key "doctors", "specifications", name: "doctors_specification_id_fkey"
