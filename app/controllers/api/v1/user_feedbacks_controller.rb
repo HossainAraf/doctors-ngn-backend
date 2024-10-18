@@ -2,7 +2,7 @@ class Api::V1::UserFeedbacksController < ApplicationController
   def index
     user_feedbacks = UserFeedback.order(created_at: :desc)
     render json: user_feedbacks
-  end  
+  end
 
   def create
     user_feedback = UserFeedback.new(user_feedback_params)
