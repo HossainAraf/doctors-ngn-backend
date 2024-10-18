@@ -1,6 +1,6 @@
 class Api::V1::UserFeedbacksController < ApplicationController
   def index
-    user_feedbacks = UserFeedback.all
+    user_feedbacks = UserFeedback.order(created_at: :desc)
     render json: user_feedbacks
   end
 
