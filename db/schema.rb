@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_18_055755) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_14_061550) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,7 +23,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_18_055755) do
     t.string "chember", limit: 255
     t.string "time", limit: 255
     t.string "contact", limit: 255
-    t.string "Expertise"
   end
 
   create_table "specifications", id: :serial, force: :cascade do |t|
